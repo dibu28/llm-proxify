@@ -12,8 +12,8 @@ WORKDIR /app
 COPY pyproject.toml README.md LICENSE ./
 COPY src ./src
 RUN python -m pip install . && \
-    groupadd --gid 10001 proxy && \
-    useradd --uid 10001 --gid proxy --no-create-home proxy
+    groupadd --gid 10001 llmproxify && \
+    useradd --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin llmproxify
 USER 10001:10001
 EXPOSE 8090
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
