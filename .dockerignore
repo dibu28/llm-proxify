@@ -1,0 +1,8 @@
+*
+!Dockerfile
+!pyproject.toml
+!README.md
+!LICENSE
+!src/
+!src/llm_proxify/
+!src/llm_proxify/*.py

@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-proxify"
+version = "0.2.0"
+description = "A small streaming load balancer for OpenAI-compatible LLM servers"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "anyio>=4.4,<5",
+    "httpx>=0.28,<1",
+    "starlette>=0.49,<1",
+    "uvicorn>=0.35,<1",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Internet :: Proxy Servers",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "openai>=1.40,<3", "build>=1.2,<2", "ruff>=0.12,<1"]
+
+[project.scripts]
+llm-proxy = "llm_proxify.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["error::ResourceWarning"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
