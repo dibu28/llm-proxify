@@ -23,7 +23,7 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8,<10", "openai>=1.40,<3", "build>=1.2,<2", "ruff>=0.12,<1"]
+dev = ["pytest>=8,<10", "openai>=1.40,<4", "build>=1.2,<2", "ruff>=0.12,<1"]
 
 [project.scripts]
 llm-proxy = "llm_proxify.cli:main"
